@@ -1,6 +1,6 @@
-public class TaskQueue implements Runnable{
-    @Override
-    public void run() {
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
-    }
+public class TaskQueue{
+    private BlockingQueue<Runnable> queue = new LinkedBlockingQueue<>();
 }
