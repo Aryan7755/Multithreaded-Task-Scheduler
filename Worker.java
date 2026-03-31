@@ -1,2 +1,3 @@
-public class Worker {
+public class Worker extends Thread{
+    private TaskQueue taskQueue;
 }
