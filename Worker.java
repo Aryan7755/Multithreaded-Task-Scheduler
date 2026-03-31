@@ -6,4 +6,12 @@ public class Worker extends Thread{
         this.taskQueue = taskQueue;
     }
 
+    public void run() {
+        while (true) { // infinite loop
+            Runnable task = taskQueue.getTask();
+            if (task != null) {
+                task.run();
+            }
+        }
+    }
 }
