@@ -11,4 +11,13 @@ public class TaskQueue{
             e.printStackTrace();
         }
     }
+
+    public Runnable getTask() {
+        try {
+            return queue.take();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
