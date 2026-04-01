@@ -14,9 +14,13 @@ public class Worker extends Thread{
 
     public void run() {
         while (true) { // infinite loop
-            Runnable task = taskQueue.getTask();
-            if (task != null) {
-                task.run();
+            try {
+                Runnable task = taskQueue.getTask();
+                if (task != null) {
+                    task.run();
+                }
+            } catch (Exception e) {
+                System.out.println(getName() + " stopped.");
             }
         }
     }
