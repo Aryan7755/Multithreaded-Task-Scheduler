@@ -3,6 +3,7 @@ public class Task implements Runnable{
     private TaskStatus status;
     public Task(int taskId) {
         this.taskId = taskId;
+        this.status = TaskStatus.PENDING;
     }
 
     @Override
