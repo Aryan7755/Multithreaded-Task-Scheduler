@@ -9,12 +9,16 @@ public class Task implements Runnable{
     @Override
     public void run() {
         status = TaskStatus.RUNNING;
-        System.out.println("Task " + taskId + " started by " + Thread.currentThread().getName());
+        System.out.println("Task " + taskId + " is " + status + " on " + Thread.currentThread().getName());
+
         try {
-            Thread.sleep(1000); // simulate work
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.out.println("Task " + taskId + " interrupted");
+            Thread.currentThread().interrupt(); // good practice
         }
-        System.out.println("Task " + taskId + " completed by " + Thread.currentThread().getName());
+
+        status = TaskStatus.COMPLETED;
+        System.out.println("Task " + taskId + " is " + status + " on " + Thread.currentThread().getName());
     }
 }
