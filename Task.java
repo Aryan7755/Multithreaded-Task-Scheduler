@@ -8,6 +8,7 @@ public class Task implements Runnable{
 
     @Override
     public void run() {
+        status = TaskStatus.RUNNING;
         System.out.println("Task " + taskId + " started by " + Thread.currentThread().getName());
         try {
             Thread.sleep(1000); // simulate work
