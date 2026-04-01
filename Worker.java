@@ -7,6 +7,11 @@ public class Worker extends Thread{
         this.taskQueue = taskQueue;
     }
 
+    public void shutdown() {
+        running = false;
+        this.interrupt(); // wake up if blocked
+    }
+
     public void run() {
         while (true) { // infinite loop
             Runnable task = taskQueue.getTask();
