@@ -16,7 +16,7 @@ public class TaskQueue{
         try {
             return queue.take();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            Thread.currentThread().interrupt();
         }
         return null;
     }
