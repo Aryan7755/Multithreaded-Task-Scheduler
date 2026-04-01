@@ -1,5 +1,6 @@
 public class Worker extends Thread{
     private TaskQueue taskQueue;
+    private volatile boolean running = true;
 
     public Worker(TaskQueue taskQueue, String name) {
         super(name);
