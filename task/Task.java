@@ -1,6 +1,6 @@
 package task;
 
-public class Task implements Runnable{
+public class Task implements Runnable, Comparable<Task>{
     private int taskId;
     private int priority;
     private TaskStatus status;
