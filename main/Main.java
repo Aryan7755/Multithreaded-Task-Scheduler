@@ -12,5 +12,14 @@ public class Main {
         scheduler.submitTask(new Task(2, 5));
         scheduler.submitTask(new Task(3, 1));
         scheduler.submitTask(new Task(4, 4));
+
+        // Delayed task
+        scheduler.scheduleTask(new Task(101, 3), 3);
+
+        // Repeating task
+        scheduler.scheduleAtFixedRate(new Task(200, 1), 1, 5);
+
+        // Let system run for some time
+        Thread.sleep(10000);
     }
 }
