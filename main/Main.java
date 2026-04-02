@@ -21,5 +21,8 @@ public class Main {
 
         // Let system run for some time
         Thread.sleep(10000);
+
+        // Shutdown
+        scheduler.shutdown();
     }
 }
