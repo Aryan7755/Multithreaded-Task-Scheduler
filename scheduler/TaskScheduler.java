@@ -19,6 +19,11 @@ public class TaskScheduler {
 
         scheduler = Executors.newScheduledThreadPool(2);
     }
+
+    // Submit normal / priority task
+    public void submitTask(Task task) {
+        executor.execute(task);
+    }
 }
 
 
