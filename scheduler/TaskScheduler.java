@@ -29,6 +29,11 @@ public class TaskScheduler {
     public void scheduleTask(Task task, int delaySeconds) {
         scheduler.schedule(task, delaySeconds, TimeUnit.SECONDS);
     }
+
+    // Schedule repeating task
+    public void scheduleAtFixedRate(Task task, int initialDelay, int period) {
+        scheduler.scheduleAtFixedRate(task, initialDelay, period, TimeUnit.SECONDS);
+    }
 }
 
 
