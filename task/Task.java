@@ -4,10 +4,16 @@ public class Task implements Runnable{
     private int taskId;
     private int priority;
     private TaskStatus status;
+
     public Task(int taskId, int priority) {
         this.taskId = taskId;
         this.priority = priority;
         this.status = TaskStatus.PENDING;
+    }
+
+
+    public int compareTo(Task other) {
+        return Integer.compare(other.priority, this.priority); // higher priority first
     }
 
     @Override
