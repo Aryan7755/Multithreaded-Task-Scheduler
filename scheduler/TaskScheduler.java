@@ -24,6 +24,11 @@ public class TaskScheduler {
     public void submitTask(Task task) {
         executor.execute(task);
     }
+
+    // Schedule task with delay
+    public void scheduleTask(Task task, int delaySeconds) {
+        scheduler.schedule(task, delaySeconds, TimeUnit.SECONDS);
+    }
 }
 
 
