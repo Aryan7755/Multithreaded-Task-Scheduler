@@ -2,9 +2,11 @@ package task;
 
 public class Task implements Runnable{
     private int taskId;
+    private int priority;
     private TaskStatus status;
-    public Task(int taskId) {
+    public Task(int taskId, int priority) {
         this.taskId = taskId;
+        this.priority = priority;
         this.status = TaskStatus.PENDING;
     }
 
