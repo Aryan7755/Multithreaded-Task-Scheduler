@@ -34,6 +34,26 @@ public class TaskScheduler {
     public void scheduleAtFixedRate(Task task, int initialDelay, int period) {
         scheduler.scheduleAtFixedRate(task, initialDelay, period, TimeUnit.SECONDS);
     }
+
+    // Graceful shutdown
+    public void shutdown() {
+        executor.shutdown();
+        scheduler.shutdown();
+
+        try {
+            if (!executor.awaitTermination(5, TimeUnit.SECONDS)) {
+                executor.shutdownNow();
+            }
+            if (!scheduler.awaitTermination(5, TimeUnit.SECONDS)) {
+                scheduler.shutdownNow();
+            }
+        } catch (InterruptedException e) {
+            executor.shutdownNow();
+            scheduler.shutdownNow();
+        }
+
+        System.out.println("Scheduler shut down successfully.");
+    }
 }
 
 
